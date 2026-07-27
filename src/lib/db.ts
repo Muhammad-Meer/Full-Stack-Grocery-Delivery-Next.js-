@@ -7,4 +7,14 @@ throw new Error("db error")
 }
 
 
-const cache = global.mongoose
+let cache = global.mongoose
+if(!cache) {
+    cache = global.mongoose={conn:null , promise:null}
+}
+
+
+const connectDb =  async ()  => {
+  if(cache.conn) {
+    return cache.conn
+  }
+}
