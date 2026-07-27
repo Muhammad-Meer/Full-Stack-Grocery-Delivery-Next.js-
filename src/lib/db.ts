@@ -17,4 +17,17 @@ const connectDb =  async ()  => {
   if(cache.conn) {
     return cache.conn
   }
+
+  if(!cache.promise) {
+    cache.promise = mongoose.connect(mongodbUrl).then((conn) => conn.connect)
+  }
+
+  try {
+    const conn = await cache.promise
+    return conn
+  } catch (
+    
+  ) {
+    
+  }
 }
