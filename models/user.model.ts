@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema<IUser>(
 
     mobile: {
       type: String,
-      required: true,
+      required: false,
       unique: false,
       trim: true,
     },
